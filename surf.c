@@ -648,11 +648,11 @@ updatetitle(Client *c)
 		getpagestats(c);
 
 		if (c->progress != 100)
-			title = g_strdup_printf("[%i%%] %s:%s | %s",
-			        c->progress, togglestats, pagestats, name);
+			title = g_strdup_printf("[%i%%] :%s | %s",
+			        c->progress, pagestats, name);
 		else
-			title = g_strdup_printf("%s:%s | %s",
-			        togglestats, pagestats, name);
+			title = g_strdup_printf(":%s | %s",
+			        pagestats, name);
 
 		gtk_window_set_title(GTK_WINDOW(c->win), title);
 		g_free(title);
@@ -2118,7 +2118,7 @@ main(int argc, char *argv[])
 	if (argc > 0)
 		arg.v = argv[0];
 	else
-		arg.v = "about:blank";
+		arg.v = "https://google.com.br/";
 
 	setup();
 	c = newclient(NULL);
